@@ -181,7 +181,7 @@ const refrenceAccessToken = asyncHandler(async (req, res) => {
   const inComingRefrenceToken =
     req.cookies.refrenceAccessToken || req.body.refreshToken;
 
-  if (inComingRefrenceToken) {
+  if (!inComingRefrenceToken) {
     throw new ApiError(401, "unauthoried request!");
   }
 
